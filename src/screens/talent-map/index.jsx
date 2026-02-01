@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
+import { useClerk, useUser } from '@clerk/nextjs';
 import { Map, Home, Users, PauseCircle, PlayCircle } from 'lucide-react';
 import { useData } from '../../contexts/DataContext';
 import { useRecruiter } from '../../contexts/RecruiterContext';
@@ -23,6 +24,8 @@ const relevanceScore = (student) => {
 
 export default function TalentMap() {
   const router = useRouter();
+  const { signOut } = useClerk();
+  const { isSignedIn, user } = useUser();
   const { students, filters, resetFilters } = useData();
   const { savedCandidates } = useRecruiter();
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -30,6 +33,14 @@ export default function TalentMap() {
   const [showAll, setShowAll] = useState(false);
   const [freezeLayout, setFreezeLayout] = useState(false);
   const topLimit = 24;
+  const userLabel = useMemo(() => {
+    return (
+      user?.fullName ||
+      user?.primaryEmailAddress?.emailAddress ||
+      user?.username ||
+      'Signed in'
+    );
+  }, [user]);
 
   // Filter students based on active filters
   const filteredStudents = useMemo(() => {
@@ -92,20 +103,33 @@ export default function TalentMap() {
             <span className="font-medium text-[#3A3A3A]">{filteredStudents.length}</span>
             {' '}builders
           </div>
+          {isSignedIn && (
+            <span className="hidden text-xs font-medium text-[#7A7A7A] lg:inline">
+              Signed in as {userLabel}
+            </span>
+          )}
           <Button
             onClick={() => router.push('/')}
-            className="bg-white text-[#6F8F88] px-4 py-2 rounded-full border border-black/8 hover:border-black/15 transition-all text-sm"
+            className="bg-white text-[#6F8F88] px-4 py-2 rounded-full border border-black/8 hover:border-black/15 hover:bg-white active:bg-white transition-all text-sm"
           >
             <Home className="w-4 h-4 mr-2 inline" />
             Home
           </Button>
           <Button
-            onClick={() => router.push('/profile/create')}
+            onClick={() => router.push('/profile/talent')}
             className="bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] text-white px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all text-sm"
           >
             <Users className="w-4 h-4 mr-2 inline" />
             Create Profile
           </Button>
+          {isSignedIn && (
+            <Button
+              onClick={() => signOut()}
+              className="bg-white text-[#6F8F88] px-4 py-2 rounded-full border border-black/8 hover:border-black/15 hover:bg-white active:bg-white transition-all text-sm"
+            >
+              Sign out
+            </Button>
+          )}
         </div>
       </header>
 
@@ -137,7 +161,7 @@ export default function TalentMap() {
                   </p>
                   <Button
                     onClick={resetFilters}
-                    className="bg-white text-[#6F8F88] px-6 py-2 rounded-full border border-black/8"
+                    className="bg-white text-[#6F8F88] px-6 py-2 rounded-full border border-black/8 hover:bg-white active:bg-white"
                   >
                     Reset Filters
                   </Button>

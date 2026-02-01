@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import Icon from 'components/AppIcon';
 
 import Breadcrumb from 'components/ui/Breadcrumb';
@@ -11,7 +13,7 @@ import BrandingCustomizationForm from './components/BrandingCustomizationForm.js
 import PreviewProfile from './components/PreviewProfile';
 
 const CompanyRegistrationProfileSetup = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     // Company Details
@@ -249,7 +251,7 @@ const CompanyRegistrationProfileSetup = () => {
       
       // Redirect to job posting page after 2 seconds
       setTimeout(() => {
-        navigate('/job-posting-creation-management');
+        router.push('/job-posting-creation-management');
       }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error);

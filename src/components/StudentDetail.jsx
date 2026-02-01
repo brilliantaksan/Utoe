@@ -94,7 +94,7 @@ export default function StudentDetail({ student, onClose }) {
             {student.projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-2xl p-4 shadow-md border border-black/5"
+                className="animated-card bg-white rounded-2xl p-4 shadow-md border border-black/5"
               >
                 <h5 className="font-semibold text-[#3A3A3A] mb-2">{project.title}</h5>
                 <p className="text-sm text-[#7A7A7A] mb-3 leading-relaxed">

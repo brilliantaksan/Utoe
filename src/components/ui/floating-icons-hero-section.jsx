@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Button from '@/components/ui/Button';
+import { BlurFade } from '@/components/ui/blur-fade';
 
 const Icon = ({ mouseX, mouseY, iconData, index }) => {
   const ref = React.useRef(null);
@@ -78,7 +79,18 @@ const Icon = ({ mouseX, mouseY, iconData, index }) => {
 };
 
 const FloatingIconsHero = React.forwardRef(
-  ({ className, title, subtitle, ctaText, ctaHref, icons, ...props }, ref) => {
+  ({
+    className,
+    title,
+    subtitle,
+    ctaText,
+    ctaHref,
+    icons,
+    showSignIn = true,
+    signInText = 'Sign in',
+    signInHref = '/sign-in',
+    ...props
+  }, ref) => {
     const mouseX = React.useRef(0);
     const mouseY = React.useRef(0);
 
@@ -120,11 +132,13 @@ const FloatingIconsHero = React.forwardRef(
             <span className="inline-flex h-2 w-2 rounded-full bg-[#8FBFB6]" />
             Trust-centered visual hiring for startup teams
           </div>
-          <h1 className="mt-6 text-5xl font-semibold tracking-tight text-[#3A3A3A] md:text-7xl">
-            <span className="bg-gradient-to-b from-[#3A3A3A] to-[#7A7A7A] bg-clip-text text-transparent">
-              {title}
-            </span>
-          </h1>
+          <BlurFade delay={0.1}>
+            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-[#3A3A3A] md:text-7xl">
+              <span className="bg-gradient-to-b from-[#3A3A3A] to-[#7A7A7A] bg-clip-text text-transparent">
+                {title}
+              </span>
+            </h1>
+          </BlurFade>
           <p className="mx-auto mt-6 max-w-xl text-lg text-[#7A7A7A]">{subtitle}</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Button
@@ -134,12 +148,14 @@ const FloatingIconsHero = React.forwardRef(
             >
               <a href={ctaHref}>{ctaText}</a>
             </Button>
-            <Link
-              href="/sign-in"
-              className="rounded-full border border-black/10 bg-white/80 px-6 py-3 text-sm font-semibold text-[#6F8F88] shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition hover:shadow-[0_14px_36px_rgba(0,0,0,0.14)]"
-            >
-              Sign in
-            </Link>
+            {showSignIn && (
+              <Link
+                href={signInHref}
+                className="rounded-full border border-black/10 bg-white/80 px-6 py-3 text-sm font-semibold text-[#6F8F88] shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition hover:shadow-[0_14px_36px_rgba(0,0,0,0.14)]"
+              >
+                {signInText}
+              </Link>
+            )}
           </div>
         </div>
       </section>

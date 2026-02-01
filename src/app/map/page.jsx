@@ -1,6 +1,6 @@
 "use client";
 
-import TalentMap from '../../pages/talent-map';
+import TalentMap from '../../screens/talent-map';
 
 export default function Page() {
   return <TalentMap />;

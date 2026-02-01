@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { Download, Home, Map, Search } from 'lucide-react';
 import { useData } from '../../contexts/DataContext';
 import { useRecruiter } from '../../contexts/RecruiterContext';
-import FilterSidebar from '../../pages/talent-map/components/FilterSidebar';
-import ForceGraph from '../../pages/talent-map/components/ForceGraph';
+import FilterSidebar from '../../screens/talent-map/components/FilterSidebar';
+import ForceGraph from '../../screens/talent-map/components/ForceGraph';
 import StudentDetail from '../StudentDetail';
 import Button from '../ui/Button';
 

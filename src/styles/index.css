@@ -12,3 +12,12 @@ body {
   font-family: inherit;
   margin: unset;
 }
+
+.animated-card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
+}
+
+.animated-card:hover {
+  transform: translateY(-4px);
+}
