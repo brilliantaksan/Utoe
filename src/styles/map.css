@@ -1,0 +1,54 @@
+/* Talent Map Specific Styles */
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* Map tooltip styles */
+.map-tooltip {
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Smooth transitions for nodes */
+.node circle {
+  transition: all 0.2s ease;
+}
+
+.node:hover circle {
+  filter: drop-shadow(0 14px 36px rgba(0,0,0,0.14)) !important;
+}
+
+/* Cluster labels */
+.cluster-label {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom scrollbar for sidebars */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}

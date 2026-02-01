@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "designLanguage": "Soft Human-Centered Talent Mapping",
+    "baseTheme": "light",
+    "visualTone": "warm, friendly, trust-building",
+    "designIntent": "Reduce hiring anxiety through spatial clarity and emotional softness",
+    "antiPattern": "No sharp edges, no harsh contrast, no enterprise rigidity"
+  },
+
+  "colorPalette": {
+    "backgrounds": {
+      "appCanvas": "#F4EFE9",
+      "panelSurface": "#F7F3EE",
+      "cardSurface": "#FFFFFF",
+      "clusterOverlay": "rgba(255,255,255,0.55)"
+    },
+
+    "text": {
+      "primary": "#3A3A3A",
+      "secondary": "#7A7A7A",
+      "tertiary": "#A0A0A0",
+      "inverse": "#FFFFFF"
+    },
+
+    "semanticClusters": {
+      "aiML": "#8FBFB6",
+      "startupHiring": "#F0A37A",
+      "rustSystems": "#9DB8A0",
+      "juniorRoles": "#E7A39A"
+    },
+
+    "uiAccents": {
+      "primaryAction": "#8FBFB6",
+      "secondaryAction": "#B5C7C3",
+      "warning": "#E07A5F",
+      "highlight": "#F2CC8F"
+    },
+
+    "borders": {
+      "subtle": "rgba(0,0,0,0.06)",
+      "focus": "rgba(143,191,182,0.45)"
+    }
+  },
+
+  "gradients": {
+    "clusterBackground": {
+      "usage": "talent clusters only (map nodes)",
+      "type": "radial",
+      "colors": [
+        "rgba(255,255,255,0.65) 0%",
+        "CURRENT_CLUSTER_COLOR 55%",
+        "rgba(0,0,0,0.03) 100%"
+      ]
+    },
+
+    "primaryButton": {
+      "usage": "main CTA buttons only",
+      "type": "linear",
+      "angle": "180deg",
+      "colors": ["#9DB8A0 0%", "#8FBFB6 100%"]
+    }
+  },
+
+  "shadows": {
+    "card": "0 8px 24px rgba(0,0,0,0.08)",
+    "cluster": "0 12px 32px rgba(0,0,0,0.10)",
+    "floatingBadge": "0 6px 16px rgba(0,0,0,0.12)",
+    "hoverLift": "0 14px 36px rgba(0,0,0,0.14)"
+  },
+
+  "radius": {
+    "sm": "10px",
+    "md": "16px",
+    "lg": "24px",
+    "pill": "999px",
+    "avatar": "50%"
+  },
+
+  "typography": {
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "hierarchy": {
+      "pageTitle": { "size": "22px", "weight": 600 },
+      "clusterTitle": { "size": "16px", "weight": 600 },
+      "cardTitle": { "size": "14px", "weight": 600 },
+      "body": { "size": "13px", "weight": 400 },
+      "label": { "size": "12px", "weight": 500 }
+    }
+  },
+
+  "elementStyling": {
+    "sidePanels": {
+      "container": {
+        "background": "#F7F3EE",
+        "border": "none",
+        "radius": "16px",
+        "shadow": "card"
+      }
+    },
+
+    "profileCard": {
+      "avatar": {
+        "shape": "circle",
+        "border": "2px solid #FFFFFF",
+        "shadow": "floatingBadge"
+      },
+      "skills": {
+        "pillBackground": "#EEF2F1",
+        "text": "#5F6F6B"
+      }
+    },
+
+    "talentClusters": {
+      "container": {
+        "shape": "organic blob",
+        "background": "gradient.clusterBackground",
+        "shadow": "cluster",
+        "radius": "lg"
+      },
+      "nodes": {
+        "avatar": {
+          "shape": "circle",
+          "border": "2px solid #FFFFFF"
+        },
+        "connectionLines": {
+          "style": "dashed",
+          "color": "rgba(0,0,0,0.15)"
+        }
+      }
+    },
+
+    "badges": {
+      "default": {
+        "background": "rgba(255,255,255,0.85)",
+        "text": "#3A3A3A",
+        "radius": "pill",
+        "shadow": "floatingBadge"
+      },
+      "hot": {
+        "background": "#E07A5F",
+        "text": "#FFFFFF"
+      }
+    },
+
+    "buttons": {
+      "primary": {
+        "background": "gradient.primaryButton",
+        "text": "#FFFFFF",
+        "radius": "pill",
+        "shadow": "floatingBadge"
+      },
+      "secondary": {
+        "background": "#FFFFFF",
+        "text": "#6F8F88",
+        "border": "1px solid rgba(0,0,0,0.08)"
+      }
+    },
+
+    "filters": {
+      "dropdown": {
+        "background": "#FFFFFF",
+        "radius": "12px",
+        "border": "1px solid rgba(0,0,0,0.06)"
+      }
+    }
+  },
+
+  "states": {
+    "hover": {
+      "effect": "elevation",
+      "shadow": "hoverLift",
+      "transition": "all 0.2s ease"
+    },
+    "active": {
+      "scale": "0.97"
+    },
+    "focus": {
+      "outline": "2px solid rgba(143,191,182,0.4)"
+    },
+    "disabled": {
+      "opacity": 0.45,
+      "interaction": "none"
+    }
+  },
+
+  "DO_NOT_RULES": [
+    "DO NOT use sharp rectangles — all elements must be rounded",
+    "DO NOT apply cluster colors to text directly",
+    "DO NOT use solid fills for clusters — always use soft radial gradients",
+    "DO NOT use harsh blacks (#000000) anywhere",
+    "DO NOT place shadows on text or icons",
+    "DO NOT reuse cluster colors for buttons",
+    "DO NOT add gridlines or rigid alignment to the map area"
+  ]
+}
