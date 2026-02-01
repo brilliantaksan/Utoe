@@ -144,7 +144,7 @@ const RecentActivity = () => {
                   
                   {activity.type === 'job_alert' && (
                     <p className="text-sm text-text-secondary mb-1">
-                      {activity.count} new jobs in "{activity.alertName}"
+                      {activity.count} new jobs in &quot;{activity.alertName}&quot;
                     </p>
                   )}
                   

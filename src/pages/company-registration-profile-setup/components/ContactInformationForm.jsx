@@ -73,7 +73,7 @@ const ContactInformationForm = ({ formData, handleChange, errors }) => {
               </p>
             )}
             <p className="mt-1 text-xs text-text-secondary">
-              We'll send a verification email to this address
+              We&apos;ll send a verification email to this address
             </p>
           </div>
           
@@ -133,7 +133,7 @@ const ContactInformationForm = ({ formData, handleChange, errors }) => {
             Verification Process
           </h3>
           <p className="text-sm text-text-secondary">
-            To ensure the authenticity of employer accounts, we'll send a verification email to the address provided. 
+            To ensure the authenticity of employer accounts, we&apos;ll send a verification email to the address provided. 
             For premium features, additional verification may be required.
           </p>
           

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useForm } from 'react-hook-form';
 import Icon from 'components/AppIcon';
 
@@ -237,4 +238,4 @@ const JobPostingCreationManagement = () => {
   );
 };
 
-export default JobPostingCreationManagement;
+export default dynamic(() => Promise.resolve(JobPostingCreationManagement), { ssr: false });

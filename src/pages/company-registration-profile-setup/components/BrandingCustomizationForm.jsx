@@ -279,7 +279,7 @@ const BrandingCustomizationForm = ({
             </li>
             <li className="flex items-start">
               <Icon name="Check" size={14} className="mt-1 mr-2 text-accent" />
-              <span>Choose colors that match your company's brand identity</span>
+              <span>Choose colors that match your company&apos;s brand identity</span>
             </li>
             <li className="flex items-start">
               <Icon name="Check" size={14} className="mt-1 mr-2 text-accent" />

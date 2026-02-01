@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Link } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
@@ -260,4 +261,4 @@ const RecruiterDashboardAnalytics = () => {
   );
 };
 
-export default RecruiterDashboardAnalytics;
+export default dynamic(() => Promise.resolve(RecruiterDashboardAnalytics), { ssr: false });

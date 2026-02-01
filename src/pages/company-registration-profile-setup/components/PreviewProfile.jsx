@@ -250,7 +250,7 @@ const PreviewProfile = ({ formData }) => {
                 <Icon name="Briefcase" size={32} className="mx-auto mb-2 text-secondary-400" />
                 <h3 className="text-lg font-medium text-text-primary mb-1">No open positions yet</h3>
                 <p className="text-text-secondary mb-4">
-                  After completing your company profile, you'll be able to post job openings.
+                  After completing your company profile, you&apos;ll be able to post job openings.
                 </p>
                 <button className="btn-secondary">
                   Post a Job

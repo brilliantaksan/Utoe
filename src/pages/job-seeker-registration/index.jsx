@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Link, useNavigate } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 import Breadcrumb from 'components/ui/Breadcrumb';
@@ -128,4 +129,4 @@ const JobSeekerRegistrationLogin = () => {
   );
 };
 
-export default JobSeekerRegistrationLogin;
+export default dynamic(() => Promise.resolve(JobSeekerRegistrationLogin), { ssr: false });

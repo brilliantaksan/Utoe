@@ -23,7 +23,7 @@ const relevanceScore = (student) => {
 
 export default function TalentMap() {
   const router = useRouter();
-  const { students, filters } = useData();
+  const { students, filters, resetFilters } = useData();
   const { savedCandidates } = useRecruiter();
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(true);
@@ -136,10 +136,7 @@ export default function TalentMap() {
                     Try adjusting your filters to see more talent
                   </p>
                   <Button
-                    onClick={() => {
-                      const { resetFilters } = useData();
-                      resetFilters();
-                    }}
+                    onClick={resetFilters}
                     className="bg-white text-[#6F8F88] px-6 py-2 rounded-full border border-black/8"
                   >
                     Reset Filters

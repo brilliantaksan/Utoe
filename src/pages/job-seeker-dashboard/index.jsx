@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Link } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 
@@ -119,4 +120,4 @@ const JobSeekerDashboard = () => {
   );
 };
 
-export default JobSeekerDashboard;
+export default dynamic(() => Promise.resolve(JobSeekerDashboard), { ssr: false });

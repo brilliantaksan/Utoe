@@ -456,7 +456,7 @@ const JobPostingForm = ({
               } />
 
             <p className="mt-1 text-xs text-text-secondary">
-              Optional but recommended. Helps candidates understand if they're a good fit.
+              Optional but recommended. Helps candidates understand if they&apos;re a good fit.
             </p>
           </div>
 

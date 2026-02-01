@@ -1,5 +1,6 @@
 // src/pages/admin-moderation-management/index.jsx
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Link } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 
@@ -261,4 +262,4 @@ const AdminModerationManagement = () => {
   );
 };
 
-export default AdminModerationManagement;
+export default dynamic(() => Promise.resolve(AdminModerationManagement), { ssr: false });

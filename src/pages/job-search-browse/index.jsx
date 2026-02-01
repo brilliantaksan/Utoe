@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { Link } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 
@@ -395,7 +396,7 @@ You'll manage campaigns across multiple channels, analyze performance metrics, a
               <div className="absolute top-full left-0 right-0 mt-2 bg-background border border-border rounded-lg shadow-modal z-50">
                 {searchQuery && (
                   <div className="p-4 border-b border-border-light">
-                    <h4 className="text-sm font-medium text-text-secondary mb-2">Search for "{searchQuery}"</h4>
+                    <h4 className="text-sm font-medium text-text-secondary mb-2">Search for &quot;{searchQuery}&quot;</h4>
                     <button
                       onClick={() => {
                         setShowSuggestions(false);
@@ -642,7 +643,7 @@ You'll manage campaigns across multiple channels, analyze performance metrics, a
               {/* No More Results */}
               {!hasMore && displayedJobs.length > 0 && (
                 <div className="text-center py-8">
-                  <p className="text-text-secondary">You've reached the end of the results</p>
+                  <p className="text-text-secondary">You&apos;ve reached the end of the results</p>
                 </div>
               )}
 
@@ -709,4 +710,4 @@ You'll manage campaigns across multiple channels, analyze performance metrics, a
   );
 };
 
-export default JobSearchBrowse;
+export default dynamic(() => Promise.resolve(JobSearchBrowse), { ssr: false });

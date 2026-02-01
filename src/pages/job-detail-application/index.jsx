@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Link } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 import Image from 'components/AppImage';
@@ -391,4 +392,4 @@ In this role, you'll collaborate closely with our product and design teams to cr
   );
 };
 
-export default JobDetailApplication;
+export default dynamic(() => Promise.resolve(JobDetailApplication), { ssr: false });

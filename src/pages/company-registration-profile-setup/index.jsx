@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useNavigate } from 'react-router-dom';
 import Icon from 'components/AppIcon';
 
@@ -484,4 +485,4 @@ const CompanyRegistrationProfileSetup = () => {
   );
 };
 
-export default CompanyRegistrationProfileSetup;
+export default dynamic(() => Promise.resolve(CompanyRegistrationProfileSetup), { ssr: false });

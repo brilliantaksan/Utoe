@@ -191,7 +191,7 @@ const SavedJobs = ({ limit, showViewAll = false, setActiveTab }) => {
           </div>
           <h4 className="text-lg font-medium text-text-primary mb-2">No Saved Jobs</h4>
           <p className="text-sm text-text-secondary mb-4">
-            You haven't saved any jobs yet. Browse jobs and save the ones you're interested in.
+            You haven&apos;t saved any jobs yet. Browse jobs and save the ones you&apos;re interested in.
           </p>
           <Link to="/job-search-browse" className="btn-primary inline-flex items-center">
             <Icon name="Search" size={16} className="mr-2" />

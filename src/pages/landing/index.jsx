@@ -3,278 +3,423 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '../../components/ui/Button';
-import { Map, Users, Sparkles, Github, Target, Zap } from 'lucide-react';
+import { FloatingIconsHero } from '../../components/ui/floating-icons-hero-section';
+import {
+  Map,
+  Users,
+  Sparkles,
+  Target,
+  Zap,
+  Compass,
+  Orbit,
+  Network,
+  Layers,
+  ShieldCheck,
+  Rocket,
+  Search,
+  Stars,
+  BadgeCheck,
+} from 'lucide-react';
+
+const floatingIcons = [
+  { id: 1, icon: Compass, className: 'top-[12%] left-[8%]' },
+  { id: 2, icon: Orbit, className: 'top-[18%] right-[12%]' },
+  { id: 3, icon: Network, className: 'top-[60%] left-[10%]' },
+  { id: 4, icon: Layers, className: 'bottom-[12%] right-[16%]' },
+  { id: 5, icon: Sparkles, className: 'top-[6%] left-[36%]' },
+  { id: 6, icon: Map, className: 'top-[8%] right-[32%]' },
+  { id: 7, icon: Users, className: 'bottom-[8%] left-[24%]' },
+  { id: 8, icon: Target, className: 'top-[42%] left-[16%]' },
+  { id: 9, icon: Rocket, className: 'top-[74%] right-[28%]' },
+  { id: 10, icon: Zap, className: 'top-[86%] left-[66%]' },
+  { id: 11, icon: Search, className: 'top-[52%] right-[6%]' },
+  { id: 12, icon: ShieldCheck, className: 'top-[58%] left-[4%]' },
+];
+
+const trustBadges = [
+  'Seed-stage founders',
+  'Engineering leads',
+  'Design-forward teams',
+  'Community builders',
+  'Talent partners',
+];
+
+const steps = [
+  {
+    id: 1,
+    icon: BadgeCheck,
+    title: 'Build a rich profile',
+    description: 'Capture your real work, stack, and outcomes with a story-first profile.',
+  },
+  {
+    id: 2,
+    icon: Map,
+    title: 'Join a living map',
+    description: 'We place you into soft clusters that reflect how you build and collaborate.',
+  },
+  {
+    id: 3,
+    icon: Stars,
+    title: 'Get discovered with context',
+    description: 'Teams explore visually, understand fit faster, and reach out with confidence.',
+  },
+];
+
+const valuePoints = [
+  {
+    id: 1,
+    icon: Users,
+    title: 'Human-first discovery',
+    description: 'We prioritize narrative and proof of work over keyword filters.',
+  },
+  {
+    id: 2,
+    icon: Target,
+    title: 'Startup-fit signals',
+    description: 'Surface builders who thrive in early-stage environments.',
+  },
+  {
+    id: 3,
+    icon: Sparkles,
+    title: 'Soft, clear clusters',
+    description: 'Visual groupings reduce noise and highlight high-signal talent.',
+  },
+];
 
 export default function Landing() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#F4EFE9]">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-black/5 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Map className="w-6 h-6 text-[#8FBFB6]" />
-            <span className="text-xl font-bold text-[#3A3A3A]">TalentMap</span>
+    <div className="min-h-screen bg-[#F4EFE9] text-[#3A3A3A]">
+      <nav className="sticky top-0 z-50 border-b border-black/5 bg-[#F7F3EE]/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-[0_6px_16px_rgba(0,0,0,0.12)]">
+              <Map className="h-5 w-5 text-[#8FBFB6]" />
+            </div>
+            <div>
+              <p className="text-lg font-semibold">TalentMap</p>
+              <p className="text-xs text-[#7A7A7A]">Visual talent discovery</p>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="hidden items-center gap-6 text-sm text-[#7A7A7A] md:flex">
             <button
               onClick={() => router.push('/map')}
-              className="text-[#7A7A7A] hover:text-[#3A3A3A] font-medium transition-colors"
+              className="transition hover:text-[#3A3A3A]"
             >
-              Explore Map
+              Explore map
+            </button>
+            <button
+              onClick={() => router.push('/landing#how')}
+              className="transition hover:text-[#3A3A3A]"
+            >
+              How it works
+            </button>
+            <button
+              onClick={() => router.push('/landing#get-started')}
+              className="transition hover:text-[#3A3A3A]"
+            >
+              Get started
+            </button>
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => router.push('/sign-in')}
+              className="rounded-full border border-black/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#6F8F88] transition hover:shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
+            >
+              Sign in
             </button>
             <Button
-              onClick={() => router.push('/profile/create')}
-              className="bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] text-white px-6 py-2 rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
+              onClick={() => router.push('/sign-up')}
+              className="rounded-full bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] px-5 py-2 text-sm font-semibold text-white shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition hover:shadow-[0_14px_36px_rgba(0,0,0,0.14)]"
             >
-              Create Profile
+              Get started
             </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full mb-8 border border-black/6">
-          <Sparkles className="w-4 h-4 text-[#8FBFB6]" />
-          <span className="text-sm font-medium text-[#7A7A7A]">
-            Visual Talent Discovery for Japan's Tech Startups
-          </span>
-        </div>
+      <FloatingIconsHero
+        title="A calmer way to discover real builders"
+        subtitle="TalentMap replaces resume overload with a warm, visual talent map. Explore clusters, understand fit fast, and connect with builders who are ready to ship."
+        ctaText="Get started free"
+        ctaHref="/sign-up"
+        icons={floatingIcons}
+      />
 
-        <h1 className="text-5xl md:text-6xl font-bold text-[#3A3A3A] mb-6 leading-tight">
-          Visualize Talent,<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9DB8A0] to-[#8FBFB6]">
-            Don't Scroll Resumes
-          </span>
-        </h1>
-
-        <p className="text-xl text-[#7A7A7A] mb-12 max-w-2xl mx-auto leading-relaxed">
-          A visual talent map for startup tech hiring in Japan — see real builders, not resumes.
-          Explore projects, not PDFs.
-        </p>
-
-        <div className="flex items-center justify-center gap-4 mb-16">
-          <Button
-            onClick={() => router.push('/map')}
-            className="bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105"
-          >
-            <Map className="w-5 h-5 mr-2 inline" />
-            Explore Talent Map
-          </Button>
-          <Button
-            onClick={() => router.push('/profile/create')}
-            className="bg-white text-[#6F8F88] px-8 py-4 rounded-full text-lg font-semibold border-2 border-black/8 hover:border-black/15 transition-all"
-          >
-            <Users className="w-5 h-5 mr-2 inline" />
-            Create Builder Profile
-          </Button>
-        </div>
-
-        {/* Visual Preview */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 border border-black/5">
-            <div className="aspect-video bg-gradient-to-br from-[#F7F3EE] to-[#F4EFE9] rounded-2xl flex items-center justify-center relative overflow-hidden">
-              {/* Simplified map preview */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="grid grid-cols-5 gap-8">
-                  {[...Array(15)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-12 h-12 rounded-full bg-gradient-to-br from-[#8FBFB6] to-[#9DB8A0] shadow-lg animate-pulse"
-                      style={{
-                        animationDelay: `${i * 0.1}s`,
-                        opacity: 0.6 + Math.random() * 0.4
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="relative z-10 text-center">
-                <Map className="w-16 h-16 text-[#8FBFB6] mx-auto mb-4 opacity-50" />
-                <p className="text-[#7A7A7A] font-medium">Interactive Talent Map</p>
-              </div>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="rounded-3xl border border-black/5 bg-white/70 p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">Trusted by</p>
+              <h2 className="mt-2 text-3xl font-semibold">Teams who hire with heart</h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {trustBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-black/5 bg-white px-4 py-2 text-sm text-[#7A7A7A] shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+                >
+                  {badge}
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem/Solution Split */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* For Students */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#EEF2FF] to-white flex items-center justify-center mb-6">
-              <Users className="w-6 h-6 text-[#6C63FF]" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">For Students & Builders</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">Resume black hole</p>
-                  <p className="text-sm text-gray-600">No feedback, no visibility</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">PDFs fail to show real ability</p>
-                  <p className="text-sm text-gray-600">Your code speaks louder than words</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">Fragmented portfolios</p>
-                  <p className="text-sm text-gray-600">GitHub, Notion, resumes scattered everywhere</p>
-                </div>
-              </div>
-              <div className="border-t border-gray-200 pt-4 mt-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-green-600 text-sm font-bold">✓</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Show real projects, not claims</p>
-                    <p className="text-sm text-gray-600">Build once, showcase forever</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* For Recruiters */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#EEF2FF] to-white flex items-center justify-center mb-6">
-              <Target className="w-6 h-6 text-[#6C63FF]" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">For Recruiters & Founders</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">Resume signal overload</p>
-                  <p className="text-sm text-gray-600">100+ PDFs, all look the same</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">Can't tell who actually built it</p>
-                  <p className="text-sm text-gray-600">Team projects hide individual contributions</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-red-600 text-sm font-bold">✗</span>
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">ATS built for corporates</p>
-                  <p className="text-sm text-gray-600">Not for fast-moving startups</p>
-                </div>
-              </div>
-              <div className="border-t border-gray-200 pt-4 mt-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-green-600 text-sm font-bold">✓</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Visual exploration, not filtering</p>
-                    <p className="text-sm text-gray-600">See clusters, spot talent instantly</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">
-          How It Works
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#6C63FF] to-[#4DA3FF] flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <Github className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">1. Create Your Profile</h3>
-            <p className="text-gray-600">
-              Add your projects, tech stack, and what you actually built. No fluff, just facts.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#6C63FF] to-[#4DA3FF] flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <Map className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">2. Appear on the Map</h3>
-            <p className="text-gray-600">
-              Your profile becomes a node, clustered with similar tech stacks. Visual, not textual.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#6C63FF] to-[#4DA3FF] flex items-center justify-center mx-auto mb-6 shadow-lg">
-              <Zap className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">3. Get Discovered</h3>
-            <p className="text-gray-600">
-              Recruiters explore the map, click your node, see your projects. Direct connection.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <div className="bg-gradient-to-br from-[#9DB8A0] to-[#8FBFB6] rounded-3xl p-12 shadow-2xl text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to be seen?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Join the visual talent map. Show your work, not your resume.
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">The TalentMap difference</p>
+          <h2 className="mt-3 text-4xl font-semibold">Visual clusters replace cold filters</h2>
+          <p className="mt-4 text-lg text-[#7A7A7A]">
+            We group builders by real project signals, not keyword density. You see how talent
+            connects, which stacks they love, and who works well together.
           </p>
-          <div className="flex items-center justify-center gap-4">
-            <Button
-              onClick={() => router.push('/profile/create')}
-              className="bg-white text-[#6F8F88] px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all transform hover:scale-105"
-            >
-              Create Your Profile
-            </Button>
+          <div className="mt-8 grid gap-4">
+            {valuePoints.map((point) => (
+              <div
+                key={point.id}
+                className="flex items-start gap-4 rounded-2xl border border-black/5 bg-white/70 p-4 shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#EEF2F1]">
+                  <point.icon className="h-5 w-5 text-[#6F8F88]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{point.title}</h3>
+                  <p className="mt-1 text-sm text-[#7A7A7A]">{point.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4">
             <Button
               onClick={() => router.push('/map')}
-              className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold border-2 border-white/30 hover:bg-white/20 transition-all"
+              className="rounded-full bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] px-6 py-3 text-sm font-semibold text-white shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition hover:shadow-[0_14px_36px_rgba(0,0,0,0.14)]"
             >
-              Explore the Map
+              Explore the map
+            </Button>
+            <Button
+              onClick={() => router.push('/profile/create')}
+              className="rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-semibold text-[#6F8F88]"
+            >
+              Build a profile
+            </Button>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <img
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+              alt="Collaborative startup team"
+              className="h-72 w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-black/5 bg-[#F7F3EE] p-4">
+                <p className="text-sm text-[#7A7A7A]">Active builders</p>
+                <p className="mt-2 text-2xl font-semibold">1,240+</p>
+              </div>
+              <div className="rounded-2xl border border-black/5 bg-[#F7F3EE] p-4">
+                <p className="text-sm text-[#7A7A7A]">Hiring squads</p>
+                <p className="mt-2 text-2xl font-semibold">180+</p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden rounded-3xl border border-black/5 bg-white/80 p-5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] lg:block">
+            <p className="text-sm text-[#7A7A7A]">Signal clarity</p>
+            <p className="mt-2 text-xl font-semibold">3x faster shortlist</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">How it works</p>
+            <h2 className="mt-3 text-4xl font-semibold">A calm path from profile to discovery</h2>
+          </div>
+          <p className="max-w-lg text-sm text-[#7A7A7A]">
+            We help builders show their work with clarity while giving hiring teams a richer view of
+            talent.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {steps.map((step) => (
+            <div
+              key={step.id}
+              className="rounded-3xl border border-black/5 bg-white/80 p-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#EEF2F1]">
+                <step.icon className="h-6 w-6 text-[#6F8F88]" />
+              </div>
+              <h3 className="mt-6 text-xl font-semibold">{step.title}</h3>
+              <p className="mt-3 text-sm text-[#7A7A7A]">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-2">
+        <div className="rounded-3xl border border-black/5 bg-white/80 p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">For builders</p>
+          <h3 className="mt-3 text-3xl font-semibold">Show your work, not just your words</h3>
+          <p className="mt-4 text-sm text-[#7A7A7A]">
+            Bring GitHub, demos, and case studies together. Keep your story gentle, structured, and
+            easy to navigate.
+          </p>
+          <ul className="mt-6 space-y-3 text-sm text-[#7A7A7A]">
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-[#8FBFB6]" />
+              Curated project highlights with context.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-[#8FBFB6]" />
+              Transparent availability and collaboration style.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-[#8FBFB6]" />
+              Cluster placement that reflects your strengths.
+            </li>
+          </ul>
+          <div className="mt-8">
+            <Button
+              onClick={() => router.push('/profile/create')}
+              className="rounded-full bg-gradient-to-b from-[#9DB8A0] to-[#8FBFB6] px-6 py-3 text-sm font-semibold text-white shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+            >
+              Create your profile
+            </Button>
+          </div>
+        </div>
+        <div className="rounded-3xl border border-black/5 bg-white/80 p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">For hiring teams</p>
+          <h3 className="mt-3 text-3xl font-semibold">Find builders who match your mission</h3>
+          <p className="mt-4 text-sm text-[#7A7A7A]">
+            See who ships, who collaborates, and who thrives in early-stage product teams.
+          </p>
+          <div className="mt-6 rounded-2xl border border-black/5 bg-[#F7F3EE] p-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
+                <Target className="h-5 w-5 text-[#6F8F88]" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold">Signal-aware shortlists</p>
+                <p className="text-xs text-[#7A7A7A]">Reduce time-to-reach-out by 43%</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-6 flex items-center gap-3 rounded-2xl border border-black/5 bg-[#F7F3EE] p-5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white">
+              <Users className="h-5 w-5 text-[#6F8F88]" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold">Warm intros</p>
+              <p className="text-xs text-[#7A7A7A]">Connect with builders through shared signals.</p>
+            </div>
+          </div>
+          <div className="mt-8">
+            <Button
+              onClick={() => router.push('/map')}
+              className="rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-semibold text-[#6F8F88]"
+            >
+              Explore talent clusters
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-black/5 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Map className="w-5 h-5 text-[#8FBFB6]" />
-              <span className="font-bold text-[#3A3A3A]">TalentMap</span>
+      <section id="get-started" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="rounded-3xl border border-black/5 bg-gradient-to-br from-[#9DB8A0] to-[#8FBFB6] p-10 shadow-[0_14px_36px_rgba(0,0,0,0.14)]">
+          <div className="flex flex-wrap items-center justify-between gap-8 text-white">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/80">Get started</p>
+              <h2 className="mt-3 text-4xl font-semibold">Choose your path</h2>
+              <p className="mt-3 max-w-xl text-sm text-white/90">
+                Whether you are building or hiring, TalentMap gives you a clear, gentle way to
+                connect.
+              </p>
             </div>
-            <p className="text-sm text-[#7A7A7A]">
-              Visual talent discovery for Japan's tech startups
-            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button
+                onClick={() => router.push('/sign-up')}
+                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#6F8F88]"
+              >
+                Sign up as a builder
+              </Button>
+              <Button
+                onClick={() => router.push('/sign-in')}
+                className="rounded-full border border-white/50 bg-white/10 px-6 py-3 text-sm font-semibold text-white"
+              >
+                Sign in to hire
+              </Button>
+            </div>
           </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl border border-white/30 bg-white/15 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                  <Rocket className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Builder onboarding</p>
+                  <p className="text-xs text-white/80">10-minute guided setup</p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-3xl border border-white/30 bg-white/15 p-6 text-white">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                  <Search className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Hiring workspace</p>
+                  <p className="text-xs text-white/80">Explore curated clusters</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-3xl border border-black/5 bg-white/80 p-8 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <p className="text-sm uppercase tracking-[0.2em] text-[#A0A0A0]">Community snapshot</p>
+            <h3 className="mt-3 text-3xl font-semibold">The map is alive and growing</h3>
+            <p className="mt-4 text-sm text-[#7A7A7A]">
+              Every week, new builders appear across AI, product, and emerging tech clusters.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-black/5 bg-[#F7F3EE] p-4">
+                <p className="text-sm text-[#7A7A7A]">New profiles</p>
+                <p className="mt-2 text-2xl font-semibold">+72 / week</p>
+              </div>
+              <div className="rounded-2xl border border-black/5 bg-[#F7F3EE] p-4">
+                <p className="text-sm text-[#7A7A7A]">Active clusters</p>
+                <p className="mt-2 text-2xl font-semibold">18 focus areas</p>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-3xl border border-black/5 bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+              alt="Team reviewing visual talent map"
+              className="h-full w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-black/5 bg-white/60">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8">
+          <div className="flex items-center gap-2">
+            <Map className="h-5 w-5 text-[#8FBFB6]" />
+            <span className="font-semibold">TalentMap</span>
+          </div>
+          <p className="text-sm text-[#7A7A7A]">
+            Visual talent discovery for Japan&apos;s tech startups.
+          </p>
         </div>
       </footer>
     </div>
